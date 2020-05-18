@@ -11,7 +11,7 @@ namespace Microondas.Repositorio.Repositorios
 {
     public class RepositorioConfiguracaoArquivo : IRepositorioConfiguracao
     {
-        private string caminho = System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\res\programas.json";
+        private string caminho = System.AppDomain.CurrentDomain.BaseDirectory + @"\res\programas.json";
 
         public List<Programa> ConsultarProgramas()
         {
