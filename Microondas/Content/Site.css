@@ -1,0 +1,60 @@
+﻿#resultado-aquecimento{
+    font-size:20px;
+    overflow:auto;
+    word-wrap:break-word;
+}
+
+.divisor {
+    border-bottom:1px solid #ccc;
+    height:1px;
+    margin-bottom:20px;
+}
+
+/*#lista-programas-disponiveis{
+    width:50%;
+}*/
+
+#lista-programas-disponiveis li{
+    
+    display:flex;
+}
+
+#lista-programas-disponiveis li .fa-check {
+    margin-left: auto;
+    cursor: pointer;
+    margin-right:5px;
+}
+
+#lista-programas-disponiveis li .fa-check, .fa-search {
+    cursor:pointer;
+}
+
+#lista-programas-disponiveis li .fa {
+    margin-right:5px;
+}
+
+
+#lista-programas-disponiveis li:hover {
+    background-color: #f1f0f0;
+}
+
+.navbar {
+    background-color: #CD2026;
+}
+
+.navbar img{
+    width:80px;
+}
+
+#loading-aquecendo{
+    margin-left:10px;
+}
+
+#header-programas {
+    display:flex;
+}
+
+#botao-novo-programa{
+    margin-left:auto;
+    cursor:pointer;
+}

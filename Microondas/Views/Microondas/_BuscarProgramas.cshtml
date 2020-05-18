@@ -1,0 +1,89 @@
+﻿@using Microondas.Models
+@model List<ProgramaViewModel>
+
+<h4 id="header-programas">Programas disponíveis <span class="fa fa-plus" id="botao-novo-programa"></span></h4>
+<div class="divisor"></div>
+<ul class="list-group" id="lista-programas-disponiveis">
+
+    @foreach (ProgramaViewModel vm in Model)
+    {
+        <li class="list-group-item" data-instrucoes="@vm.Instrucoes" data-tempo="@vm.TempoAquecimento" data-potencia="@vm.Potencia" data-caractere="@vm.CaractereAquecimento">
+            <span>@vm.Nome</span>
+
+            <span class="fa fa-check botao-utilizar-programa" title="Utilizar este programa" data-toggle="tooltip"></span>
+            <span class="fa fa-clock-o" title="Tempo: @(TimeSpan.FromSeconds(vm.TempoAquecimento))" data-toggle="tooltip"></span>
+            <span class="fa fa-thermometer-2" title="Potência: @vm.Potencia" data-toggle="tooltip"></span>
+            <span class="fa fa-search botao-exibir-instrucoes" title="Exibir instruções" data-toggle="tooltip"></span>
+        </li>
+    }
+
+</ul>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-instrucoes">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Instruções</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cadastro-programa">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Novo programa</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Nome</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="input-nome-novo" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Tempo de cozimento</label>
+                        <div class="col-md-4">
+                            <input type="number" class="form-control" id="input-tempo-novo" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Caractere</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="input-caractere-novo" maxlength="1"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Potência</label>
+                        <div class="col-md-6">
+                            <input type="range" class="" id="input-potencia-novo" value="10" min="1" max="10" step="1" />
+                            <span id="span-valor-potencia-novo">10</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Instruções</label>
+                        <div class="col-md-6">
+                            <textarea style="resize:none;" rows="5" class="form-control" id="input-instrucoes-novo"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="botao-gravar-programa">Gravar</button>
+            </div>
+        </div>
+    </div>
+</div>
